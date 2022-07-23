@@ -3,6 +3,7 @@
     background-color: var(--branco);
     display: flex;
     justify-content: space-between;
+    position: relative;
 }
 
 .container {
@@ -10,6 +11,9 @@
     align-items: center;
 }
 
+.container__botao {
+    display: none;
+}
 
 /*Incluindo a imagem do hamburguer*/
 .cabecalho__menu-hamburguer {
@@ -23,4 +27,37 @@
 
 .cabecalho__container-imagem {
     padding: 1em;
+}
+
+.lista__menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    width: 60vw; /*A medida vw é view port width. Então aqui, falamos de largura. 60 é 60% do tamanho.  Quando usamos vh é de alutura.*/
+}
+
+
+/*checked é uma pseudo classe para uma ação quando o botão está selecionado.
+ O seletor ~ procura o proximo elemento com a classe indicado. No caso, é a classe .lista__menu*/
+.container__botao:checked ~ .lista__menu {
+    display: block;
+}
+
+.lista__menu__titulo {
+    color: var(--laranja);
+    font-weight: 700;
+}
+
+.lista__menu__titulo, 
+.lista__menu__item {
+    background-color: var(--branco);
+    padding: 1em;
+}
+
+.lista__menu-link {
+    background: var(--azul-degrade);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    background-clip: text;
+    text-transform: uppercase;
 }
